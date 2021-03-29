@@ -1,9 +1,8 @@
-function sayHello() {
-  return "Hello World";
-}
+let input = "   JavaScript   ";
+let output = "<div>" + input.trim() + "</div>";
 
-function greet(fnMessage) {
-  console.log(fnMessage());
-}
+const trim = str => str.trim();
+const wrapInDiv = str => `<div>${str}</div>`;
+const toLowerCase = str => str.toLowerCase();
 
-greet(sayHello);
+const result = wrapInDiv(toLowerCase(trim(input)));
