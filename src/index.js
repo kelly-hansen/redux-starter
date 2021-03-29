@@ -2,4 +2,8 @@ function sayHello() {
   return "Hello World";
 }
 
-let fn = sayHello;
+function greet(fnMessage) {
+  console.log(fnMessage());
+}
+
+greet(sayHello);
