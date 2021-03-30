@@ -4,7 +4,11 @@ export function bugAdded(description) {
   return {
     type: actions.BUG_ADDED,
     payload: {
-      description: 'Bug1'
+      description
     }
   }
+}
+
+export function bugRemoved(description) {
+  return
 }
