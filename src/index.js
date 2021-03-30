@@ -1,13 +1,13 @@
-const numbers = [1, 2, 3];
+import { produce } from 'immer';
 
-const index = numbers.indexOf(2);
-const added = [
-  ...numbers.slice(0, index),
-  4,
-  ...numbers.slice(index)
-];
+let book = { title: "Harry Potter "};
 
-const removed = numbers.filter(n => n !== 2);
+function publish(book) {
+  return produce(book, draftBook => {
+    draftBook.isPublished = true;
+  });
+}
 
-const updated = numbers.map(n => n === 2 ? 20 : n);
-console.log(updated);
+const updated = publish(book);
+
+console.log(book, updated);
