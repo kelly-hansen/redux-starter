@@ -9,6 +9,11 @@ export function bugAdded(description) {
   }
 }
 
-export function bugRemoved(description) {
-  return
+export function bugRemoved(id) {
+  return {
+    type: actions.BUG_REMOVED,
+    payload: {
+      id
+    }
+  }
 }
