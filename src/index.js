@@ -7,6 +7,11 @@ store.dispatch((dispatch, getState) => {
   console.log(getState());
 });
 
+store.dispatch({
+  type: 'error',
+  payload: { message: 'An error occurred.' }
+});
+
 
 //Prior Exercises
 
