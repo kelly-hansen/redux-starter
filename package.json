@@ -10,13 +10,23 @@
   "author": "Mosh Hamedani",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "webpack": "4.41.6",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.2.5",
     "immer": "^9.0.1",
     "immutable": "^4.0.0-rc.12",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "reselect": "^4.0.0"
   }
 }
