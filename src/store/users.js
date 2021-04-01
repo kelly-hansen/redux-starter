@@ -9,14 +9,8 @@ const slice = createSlice({
     userAdded: (users, action) => {
       users.push({
         id: ++lastId,
-        name: action.payload.name,
-        assignedBugIds: []
+        name: action.payload.name
       });
-    },
-
-    assignedBug: (users, action) => {
-      const userIndex = users.findIndex(user => user.id === action.payload.userId);
-      users[userIndex].assignedBugIds.push(action.payload.bugId);
     }
   }
 });
