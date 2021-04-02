@@ -11,7 +11,7 @@ const api = ({ dispatch }) => next => async action => {
   const { url, method, data, onSuccess, onError } = action.payload;
 
   try {
-    await axios.request({
+    const response = await axios.request({
       //test success/failure by changing port
       baseURL: 'http://localhost:9002/api',
       url,
@@ -19,10 +19,10 @@ const api = ({ dispatch }) => next => async action => {
       data
     });
     // General
-    dispatch(actions.apiCallSuccess(Response.data));
+    dispatch(actions.apiCallSuccess(response.data));
     // Specific
     if (onSuccess) {
-      dispatch({ type: onSuccess, payload: Response.data });
+      dispatch({ type: onSuccess, payload: response.data });
     }
   } catch(error) {
     // General
