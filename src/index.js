@@ -1,9 +1,19 @@
 import configureStore from './store/configureStore';
-import { addBug } from './store/bugs';
+import { loadBugs, assignBugToUser, resolveBug } from './store/bugs';
+import { userAdded } from './store/users';
 
 const store = configureStore();
 
-store.dispatch(addBug({ description: 'a' }));
+store.dispatch(loadBugs());
+store.dispatch(userAdded({ name: 'Trevor' }));
+
+setTimeout(() => {
+  const bugId = store.getState().entities.bugs.list[0].id;
+  store.dispatch(assignBugToUser(1, 1));
+  store.dispatch(resolveBug(bugId));
+}, 2000);
+
+
 
 // store.dispatch((dispatch, getState) => {
 //   dispatch({ type: 'bugsReceived', bugs: [1, 2, 3] })

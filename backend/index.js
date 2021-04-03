@@ -27,6 +27,7 @@ app.post("/api/bugs", (req, res) => {
 app.patch("/api/bugs/:id", (req, res) => {
   const index = bugs.findIndex(bug => bug.id === parseInt(req.params.id));
   const bug = bugs[index];
+  console.log(req.body);
   if ("resolved" in req.body) bug.resolved = req.body.resolved;
   if ("userId" in req.body) bug.userId = req.body.userId;
 
