@@ -21,6 +21,10 @@ const slice = createSlice({
       bugs.loading = false;
     },
 
+    bugsRequestFailed: (bugs, action) => {
+      bugs.loading = false;
+    },
+
     bugAssignedToUser: (bugs, action) => {
       const { bugId, userId } = action.payload;
       const index = bugs.list.findIndex(bug => bug.id === bugId);
@@ -47,7 +51,8 @@ export const {
   bugAdded,
   bugResolved,
   bugsReceived,
-  bugsRequested
+  bugsRequested,
+  bugsRequestFailed
 } = slice.actions;
 export default slice.reducer;
 
@@ -57,7 +62,8 @@ const url = '/bugs';
 export const loadBugs = () => apiCallBegan({
   url,
   onStart: bugsRequested.type,
-  onSuccess: bugsReceived.type
+  onSuccess: bugsReceived.type,
+  onError: bugsRequestFailed.type
 });
 
 // Selectors

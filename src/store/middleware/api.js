@@ -30,10 +30,10 @@ const api = ({ dispatch }) => next => async action => {
     }
   } catch(error) {
     // General
-    dispatch(actions.apiCallFailed(error));
+    dispatch(actions.apiCallFailed(error.message));
     // Specific
     if (onError) {
-      dispatch({ type: onError, payload: error });
+      dispatch({ type: onError, payload: error.message });
     }
   }
 
