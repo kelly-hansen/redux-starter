@@ -12,6 +12,8 @@ const api = ({ dispatch }) => next => async action => {
     dispatch({ type: onStart });
   }
 
+  console.log("ACTION:", action);
+
   next(action);
 
   try {
