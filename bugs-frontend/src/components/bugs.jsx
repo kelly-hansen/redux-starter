@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StoreContext from '../contexts/storeContext';
+import { loadBugs } from '../store/bugs';
 
 export default class Bugs extends Component {
   static contextType = StoreContext;
@@ -15,6 +16,8 @@ export default class Bugs extends Component {
         this.setState({ bugs: bugsInStore });
       }
     });
+
+    store.dispatch(loadBugs());
   }
 
   componentWillUnmount() {
@@ -22,6 +25,12 @@ export default class Bugs extends Component {
   }
 
   render() {
-    return <div>Bugs</div>
+    return (
+      <ul>
+        {this.state.bugs.map(bug => (
+          <li key={bug.id}>{bug.description}</li>
+        ))}
+      </ul>
+    );
   }
 }
