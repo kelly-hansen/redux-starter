@@ -1,16 +1,29 @@
 import configureStore from './store/configureStore';
+import { loadBugs, assignBugToUser, resolveBug } from './store/bugs';
+import { userAdded } from './store/users';
 
 const store = configureStore();
 
-store.dispatch((dispatch, getState) => {
-  dispatch({ type: 'bugsReceived', bugs: [1, 2, 3] })
-  console.log(getState());
-});
+store.dispatch(loadBugs());
+store.dispatch(userAdded({ name: 'Trevor' }));
 
-store.dispatch({
-  type: 'error',
-  payload: { message: 'An error occurred.' }
-});
+setTimeout(() => {
+  const bugId = store.getState().entities.bugs.list[0].id;
+  store.dispatch(assignBugToUser(1, 1));
+  store.dispatch(resolveBug(bugId));
+}, 2000);
+
+
+
+// store.dispatch((dispatch, getState) => {
+//   dispatch({ type: 'bugsReceived', bugs: [1, 2, 3] })
+//   console.log(getState());
+// });
+
+// store.dispatch({
+//   type: 'error',
+//   payload: { message: 'An error occurred.' }
+// });
 
 
 //Prior Exercises
