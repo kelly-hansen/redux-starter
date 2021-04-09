@@ -4,7 +4,7 @@ import logger from './middleware/logger';
 import toast from './middleware/toast';
 import api from './middleware/api';
 
-export default function () {
+export default function store() {
   return configureStore({
     reducer,
     middleware: [

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import axios from 'axios';
+// import axios from 'axios';
 import { apiCallBegan } from './api';
 import moment from 'moment';
 
@@ -103,9 +103,10 @@ export const resolveBug = bugId => apiCallBegan({
 });
 
 // Selectors
+
 export const selectUnresolvedBugs = createSelector(
   state => state.entities.bugs,
-  bugs => bugs.filter(bug => !bug.resolved)
+  bugs => bugs.list.filter(bug => !bug.resolved)
 );
 
 export const selectBugsByUser = userId => createSelector(
