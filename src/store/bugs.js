@@ -71,21 +71,22 @@ export const loadBugs = () => (dispatch, getState) => {
   }));
 }
 
-export const addBug = async bug => {
-  try {
-    const response = await axios.post(url, bug);
-    dispatch(bugAdded(bug));
-  } catch (error) {
-    dispatch({ type: 'error' });
-  }
-}
+// Alternate addBug for testing (not working)
+// export const addBug = async bug => {
+//   try {
+//     const response = await axios.post(url, bug);
+//     dispatch(bugAdded(bug));
+//   } catch (error) {
+//     dispatch({ type: 'error' });
+//   }
+// }
 
-// export const addBug = bug => apiCallBegan({
-//   url,
-//   method: 'post',
-//   data: bug,
-//   onSuccess: bugAdded.type
-// });
+export const addBug = bug => apiCallBegan({
+  url,
+  method: 'post',
+  data: bug,
+  onSuccess: bugAdded.type
+});
 
 export const assignBugToUser = (bugId, userId) => apiCallBegan({
   url: url + '/' + bugId,

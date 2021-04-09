@@ -5,8 +5,7 @@ describe("bugsSlice", () => {
   it("should handle the addBug action", async () => {
     const store = configureStore();
     const bug = { description: "a" };
-    const x = store.dispatch(addBug(bug));
-    console.log("DEBUG", x);
-    console.log(store.getState());
-  })
+    await store.dispatch(addBug(bug));
+    expect(store.getState().entities.bugs.list).toHaveLength(1);
+  });
 });
