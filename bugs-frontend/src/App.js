@@ -1,4 +1,5 @@
 import './App.css';
+import Home from "./components/Home";
 import BugsList from "./components/BugsList";
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
@@ -12,7 +13,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-
+            <Home />
           </Route>
           <Route path="/bugs">
             <BugsList />
