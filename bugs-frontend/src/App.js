@@ -10,7 +10,14 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <BugsList />
+        <Switch>
+          <Route exact path="/">
+
+          </Route>
+          <Route path="/bugs">
+            <BugsList />
+          </Route>
+        </Switch>
       </Router>
     </Provider>
   );
